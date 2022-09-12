@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="@dimen/_18cdp"
+    android:layout_marginLeft="@dimen/_18cdp"
+    android:layout_marginTop="@dimen/_18cdp"
+    android:background="@drawable/backgroind_cancel_button"
+    android:id="@+id/relative_click"
+    >
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/_12cdp"
+        android:layout_marginRight="@dimen/_16cdp"
+        android:layout_marginBottom="@dimen/_12cdp"
+        android:text="name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_24cdp"
+        android:fontFamily="@font/iransansmobile"
+        />
+
+    <TextView
+        android:id="@+id/genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/white"
+        android:text="PS4"
+        android:textSize="@dimen/_24cdp"
+        />
+
+    <ImageView
+        android:layout_width="@dimen/_30cdp"
+        android:layout_height="@dimen/_30cdp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/_16cdp"
+        android:id="@+id/image"
+        />
+
+
+
+</RelativeLayout>

@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView navigation;
     private NavController navController;
+    private BottomNavigationView navView;
 
 
     @Override
@@ -27,10 +28,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ///navigatin bar
-        BottomNavigationView navView = findViewById(R.id.navigation);
+        navView = findViewById(R.id.navigation);
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupWithNavController(navView, navController);
-    }
 
+
+
+    }
 
 }

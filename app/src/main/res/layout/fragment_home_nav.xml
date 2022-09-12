@@ -4,41 +4,79 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.home_nav">
+    tools:context=".fragments.home_nav"
+    android:background="@color/black"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
-        <RelativeLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/mainBlk"
-            >
+            android:layout_margin="@dimen/_12cdp"
+            android:backgroundTint="#80D50000"
+            app:cardCornerRadius="@dimen/_16cdp">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="خانه"
-                android:textColor="@color/mainRed"
-                android:textSize="@dimen/_24cdp"
-                android:padding="@dimen/_8cdp"
-                />
+                android:orientation="horizontal">
 
-        </RelativeLayout>
+                <TextClock
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-        <TextClock
+                    android:layout_weight="1"
+                    android:fontFamily="@font/iransansmobile"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18cdp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:fontFamily="@font/iransansmobile"
+                        android:text="1401-05-01"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_18cdp" />
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+                    android:fontFamily="@font/iransansmobile"
+                    android:gravity="center"
+                    android:text="شنبه"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18cdp" />
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/mainRed"
-            android:gravity="center"
-            android:textSize="@dimen/_32cdp"
-            android:layout_margin="@dimen/_8cdp"
-            android:fontFamily="@font/iransansmobile"
+            android:layout_height="match_parent"
+            android:id="@+id/recycler"
             />
+
 
     </LinearLayout>
 
@@ -47,7 +85,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="@dimen/_24cdp"
+        android:layout_marginRight="@dimen/_16cdp"
+        android:layout_marginBottom="@dimen/_16cdp"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 

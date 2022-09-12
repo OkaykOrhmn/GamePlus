@@ -3,17 +3,134 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
-        android:layout_width="@dimen/_100cdp"
-        android:layout_height="@dimen/_100cdp"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@color/mainRed"
-        >
+        android:orientation="vertical"
+        android:background="@color/mainBlk">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="کنسول خود را بسازید:"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/_12cdp"
+            android:textSize="@dimen/_18cdp"
+            android:fontFamily="@font/iransansmobile"
+            />
 
-    </RelativeLayout>
+        <RadioGroup
+            android:padding="@dimen/_4cdp"
+            android:id="@+id/groupradio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/_4cdp"
+            >
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radia_ps5"
+                android:text="PS5"
+                android:textSize="@dimen/_18cdp"
+                android:textColor="@color/white"
+                android:buttonTint="@color/mainRed"
+                />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radia_ps4"
+                android:text="PS4"
+                android:layout_marginLeft="@dimen/_24cdp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_18cdp"
+                android:buttonTint="@color/mainRed"
+                />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radia_xbox"
+                android:text="Xbox"
+                android:textSize="@dimen/_18cdp"
+                android:layout_marginLeft="@dimen/_24cdp"
+                android:textColor="@color/white"
+                android:buttonTint="@color/mainRed"
+                />
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/name_consol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="شماره / اسم کنسول"
+            android:backgroundTint="@color/white"
+            android:textColorHint="#80FFFFFF"
+            android:layout_marginLeft="@dimen/_32cdp"
+            android:layout_marginRight="@dimen/_32cdp"
+            android:layout_marginTop="@dimen/_12cdp"
+            android:drawableTint="@color/white"
+            android:drawableLeft="@drawable/ic_icons8_info"
+            android:fontFamily="@font/iransansmobile"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:gravity="right"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_18cdp"
+            android:layout_marginBottom="@dimen/_12cdp"
+            android:orientation="horizontal"
+            >
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cancel_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/_8cdp"
+                android:layout_marginBottom="@dimen/_8cdp"
+                android:layout_marginLeft="@dimen/_18cdp"
+                android:layout_marginRight="@dimen/_12cdp"
+                android:fontFamily="@font/iransansmobile"
+                android:text="بازگشت"
+                android:textColor="@color/mainRed"
+                app:strokeWidth="@dimen/_2cdp"
+                app:strokeColor="@color/mainRed"
+                android:backgroundTint="@color/mainBlk"
+                app:cornerRadius="@dimen/_8cdp"
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/accept_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/_8cdp"
+                android:layout_marginBottom="@dimen/_8cdp"
+                android:layout_marginLeft="@dimen/_12cdp"
+                android:layout_marginRight="@dimen/_18cdp"
+                android:backgroundTint="@color/mainRed"
+                app:cornerRadius="@dimen/_8cdp"
+                android:text="اضافه کردن"
+                android:textColor="@color/white"
+
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 
 </RelativeLayout>
