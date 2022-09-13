@@ -1,5 +1,6 @@
 package com.rhmn.gameplus.activitys.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -25,15 +26,13 @@ public class ConsolsAdapter extends RecyclerView.Adapter<ConsolsAdapter.ViewHold
 
     private ArrayList<Consols> genres ;
     private Context context ;
-    private boolean click ;
-    private boolean a ;
-    private int clickPosition;
 
-    public ConsolsAdapter(Context context , ArrayList<Consols> genres, boolean a) {
+
+
+    public ConsolsAdapter(Context context , ArrayList<Consols> genres) {
         this.context = context ;
         this.genres = genres ;
-        this.a = a;
-        Log.d(Constants.TAG, "c: "+a);
+
 
     }
 
@@ -47,7 +46,7 @@ public class ConsolsAdapter extends RecyclerView.Adapter<ConsolsAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ConsolsAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ConsolsAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         holder.binding.name.setText(genres.get(position).name);
 //        holder.binding.image.setImageDrawable(R.drawable.xbox);
@@ -67,29 +66,18 @@ public class ConsolsAdapter extends RecyclerView.Adapter<ConsolsAdapter.ViewHold
         }
 
 
-        if (a){
-            Log.d(Constants.TAG, "1: "+ a);
-            holder.binding.relativeClick.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+            holder.binding.relativeClick.setOnClickListener(view -> {
 
 
-                    if (!click) {
-                        holder.binding.relativeClick.setBackgroundResource(R.drawable.background_trash);
-                        click = true;
-                    }else {
-                        holder.binding.relativeClick.setBackgroundResource(R.drawable.backgroind_cancel_button);
-                        click = false;
-                    }
-
+                if (!genres.get(position).isSelected()) {
+                    holder.binding.relativeClick.setBackgroundResource(R.drawable.background_trash);
+                }else {
+                    holder.binding.relativeClick.setBackgroundResource(R.drawable.backgroind_cancel_button);
                 }
+                    genres.get(position).setSelected(!genres.get(position).isSelected());
+
             });
 
-        }else{
-            Log.d(Constants.TAG, "2: "+ a);
-            holder.binding.relativeClick.setBackgroundResource(R.drawable.backgroind_cancel_button);
-
-        }
 
 
     }

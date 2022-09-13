@@ -170,7 +170,7 @@ public class home_nav extends Fragment {
 
         sqlLite = new SqlLite(getContext());
         consolsArrayList = sqlLite.getDataConsols();
-        adapter = new ConsolsAdapter(getContext(), consolsArrayList, isClicked);
+        adapter = new ConsolsAdapter(getContext(), consolsArrayList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         binding.recycler.setLayoutManager(linearLayoutManager);
         binding.recycler.setAdapter(adapter);
