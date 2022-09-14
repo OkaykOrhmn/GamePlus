@@ -1,12 +1,9 @@
 package com.rhmn.gameplus.fragments;
 
 import android.app.Dialog;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,14 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.rhmn.gameplus.R;
 import com.rhmn.gameplus.activitys.adapter.ConsolsAdapter;
 import com.rhmn.gameplus.activitys.adapter.Trash;
@@ -32,10 +27,10 @@ import com.rhmn.gameplus.database.Consols;
 import com.rhmn.gameplus.database.SqlLite;
 import com.rhmn.gameplus.databinding.FragmentHomeNavBinding;
 import com.rhmn.gameplus.utiles.Constants;
+import com.rhmn.gameplus.utiles.TrashId;
 import com.rhmn.gameplus.utiles.ViewAnimation;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class home_nav extends Fragment {
     private FragmentHomeNavBinding binding;
@@ -46,6 +41,8 @@ public class home_nav extends Fragment {
     private ConsolsAdapter adapter;
     private ArrayList<Consols> consolsArrayList;
     private boolean isClicked = false;
+    private ArrayList<Trash> trashes;
+    FloatingActionButton b ;
 
 
 
@@ -157,7 +154,18 @@ public class home_nav extends Fragment {
                     show_out = true;
                     Recycl();
                 }else {
+                    ArrayList<Trash> trashes = sqlLite.getDataId();
+                    for (int i =0; i<trashes.size(); i++){
+                        int a = trashes.get(i).id;
+                        sqlLite.delete(a);
+                        sqlLite.deleteId(a);
+                    }
+                    MyToast("finish");
+                    show_out = false;
+                    ViewAnimation.showIn(fab_creat);
+                    isClicked = false;
 
+                    Recycl();
 
 
                 }
@@ -170,7 +178,8 @@ public class home_nav extends Fragment {
 
         sqlLite = new SqlLite(getContext());
         consolsArrayList = sqlLite.getDataConsols();
-        adapter = new ConsolsAdapter(getContext(), consolsArrayList);
+        b = binding.fabTrash;
+        adapter = new ConsolsAdapter(getContext(), consolsArrayList, isClicked);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         binding.recycler.setLayoutManager(linearLayoutManager);
         binding.recycler.setAdapter(adapter);
@@ -191,4 +200,11 @@ public class home_nav extends Fragment {
         toast.show();
 
     }
+
+//    @Override
+//    public void selectedIds(ArrayList<Trash> trashes) {
+//        for (int i = 0; i<trashes.size(); i++){
+//            sqlLite.delete(trashes.get(i).id);
+//        }
+//    }
 }

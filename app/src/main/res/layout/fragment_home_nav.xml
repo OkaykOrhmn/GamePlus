@@ -8,12 +8,14 @@
     android:background="@color/black"
     >
 
-    <LinearLayout
+<!--        android:layout_above="@id/nothing"-->
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/time_cart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_12cdp"
@@ -46,8 +48,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:fontFamily="@font/iransansmobile"
+                        android:gravity="center"
                         android:text="1401-05-01"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_18cdp" />
@@ -72,13 +74,14 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/recycler"
-            />
+            android:layout_below="@+id/time_cart" />
 
 
-    </LinearLayout>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"

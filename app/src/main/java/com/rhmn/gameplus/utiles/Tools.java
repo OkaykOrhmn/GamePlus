@@ -8,6 +8,10 @@ import android.view.WindowManager;
 
 import androidx.annotation.ColorRes;
 
+import com.rhmn.gameplus.activitys.adapter.Trash;
+
+import java.util.ArrayList;
+
 public class Tools {
 
     public static void setSystemBarColor(Activity act, @ColorRes int color) {
@@ -26,6 +30,10 @@ public class Tools {
             flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
             view.setSystemUiVisibility(flags);
         }
+    }
+
+    public void deldet(ArrayList<Trash> trashes){
+
     }
 
 

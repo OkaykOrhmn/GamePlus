@@ -7,6 +7,10 @@ public class Consols {
     public String genre = "";
     private boolean isSelected = false;
 
+    public Consols(int id) {
+        this.id = id;
+    }
+
 
     public void setSelected(boolean selected) {
         isSelected = selected;
